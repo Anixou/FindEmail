@@ -9,6 +9,12 @@ function saveValue(data) {
   properties.setProperty('key', data);
 }
 
+function clear_key() {
+  properties.setProperty('key',"");
+  let ui = SpreadsheetApp.getUi();
+    ui.alert("Key deleted");
+}
+
 function onOpen() {
   SpreadsheetApp.getUi()
       .createMenu('API key')
@@ -27,8 +33,12 @@ function keyMenu() {
 
 function get_form_info(formObject) {
   let ui = SpreadsheetApp.getUi();
-  ui.alert("Key saved");
-  saveValue(formObject.key);
+  if(formObject.key)
+  {
+    saveValue(formObject.key);
+    ui.alert("Key saved");
+  }
+  else ui.alert("no key provided");
 }
 
 function findEmail(first_names,last_names,company) {
