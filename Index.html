@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    Please insert your API Key.<br><br>
+    <form  onsubmit="google.script.run.get_form_info(this);google.script.host.close()">
+      <input type="text" name="key"><br><br>
+      <input type="submit" value="Submit">
+    </form><br>
+    <input type="button" value="Cancel" onclick="google.script.host.close()" />
+    <input type="button" value="Clear key" onclick="google.script.run.clear_key();google.script.host.close()" />
+  </body>
+</html>
